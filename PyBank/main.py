@@ -6,47 +6,46 @@ import os
 # Imports CVS module
 import csv
 
+# Imports currency and date formatting
+import locale
+
 # Follows the file path
 budget_path = os.path.join("PyBank","Resources","budget_data.csv")
 
-
 # Open and read csv
 with open(budget_path) as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=",")
+    csv_reader = csv.reader(csv_file)
 
     # Read the header row first
     csv_header = next(csv_file)
-    print(f"Header: {csv_header}")
 
     # Calculates the number of months
-    rows_number = csv_file.readlines()
-    months_number = (len(rows_number))
-
-    # Calculates the net total amound of "Profit/Losses"
     
+    for row in csv_reader:
 
-    # Loop through the data
-    #for row in csv_reader:
+        Date = []
+        PnL = []
 
+        Date = (row[0])
+        PnL = (row[1])
+
+        total = sum(int(PnL))
       
-
-# Prints Analysis Results header
-print("Financial Analysis")
-print("----------------------------")     
-
-# PRINT THE TOTAL NUMBER OF MONTHS INCLUDED IN THE DTASET
-print ("Total Months:", months_number)
-
-# PRINT TTHE NET TOTAL AMOUNT OF "PROFIT/LOSSES" OVER THE ENTIRE PERIOD
+        print (PnL)
 
 
 
-# PRINT THE CHANGES IN "PROFIT/LOSSES" OVER THE ENTIRE PERIOD, AND THEN THE AVERAGE OF THOSE CHANGES
 
 
 
-# PRINT THE GREATES INCREASE IN PROFITS (DATE AND AMOUND) OVER THE ENTIRE PERIOD
 
 
 
-# PRINT THE GREATES DECREASE IN PROFITS (DATE AND AMOUND) OVER THE ENTIRE PERIOD
+# PRINTS THE FOLLOWING VALUES:
+'''
+    The total number of months included in the dataset
+    The net total amount of "Profit/Losses" over the entire period
+    The changes in "Profit/Losses" over the entire period, and then the average of those changes
+    The greatest increase in profits (date and amount) over the entire period
+    The greatest decrease in profits (date and amount) over the entire period
+'''
