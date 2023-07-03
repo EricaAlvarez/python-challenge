@@ -17,21 +17,21 @@ with open(budget_path) as csv_file:
     csv_reader = csv.reader(csv_file)
 
     # Read the header row first
-    csv_header = next(csv_file)
+    header = next(csv_reader)
 
     # Calculates the number of months
+
+    Date = []
+    PnL = []
     
     for row in csv_reader:
 
-        Date = []
-        PnL = []
-
-        Date = (row[0])
-        PnL = (row[1])
-
-        total = sum(int(PnL))
-      
+        Date.append(row[0])
+        PnL.append(row[1])
+        
         print (PnL)
+        
+        total = sum(int(PnL))
 
 
 
